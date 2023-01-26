@@ -7,8 +7,8 @@ st.header("By  Priya  Thiagarajan  (21CS007)")
 
 img = st.file_uploader("Choose a File")
 
-model_name = 'new_model.h5'
-model = load_model(model_name)
+model = 'new_model.h5'
+#model = load_model(model_name)
 
 pred = model.pred(img)
 x = np.argmax(pred)
