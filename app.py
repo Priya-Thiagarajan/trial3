@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-from tensorflow.keras.models import load_model
+
 
 st.title("Intelligent  Papilledema  Detector  (IPD)")
 st.header("By  Priya  Thiagarajan  (21CS007)")
