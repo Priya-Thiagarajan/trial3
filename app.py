@@ -5,7 +5,7 @@ import numpy as np
 st.title("Intelligent  Papilledema  Detector  (IPD)")
 st.header("By  Priya  Thiagarajan  (21CS007)")
 
-img = st.file_uploader(type=['png', 'jpg'])
+img = st.file_uploader(type='jpg')
 
 model = 'new_model.h5'
 #model = load_model(model_name)
