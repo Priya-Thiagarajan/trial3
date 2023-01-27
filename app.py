@@ -10,11 +10,13 @@ st.title("Intelligent  Papilledema  Detector  (IPD)")
 st.header("By  Priya  Thiagarajan  (21CS007)")
 
 files = st.file_uploader("", type=['png', 'jpg', 'jpeg'])
-basepath = os.path.dirname(__file__)
-filename = files.filename
-filename = filename.replace(" ", "")
-file_path = os.path.join(basepath, 'uploads', filename)
-files.save(file_path)
+
+if (st.button("Submit")): 
+  basepath = os.path.dirname(__file__)
+  filename = files.filename
+  filename = filename.replace(" ", "")
+  file_path = os.path.join(basepath, 'uploads', filename)
+  files.save(file_path)
 
 model_name = 'new_model.h5'
 model = load_model(model_name)
