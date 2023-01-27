@@ -1,14 +1,15 @@
 import streamlit as st
 import numpy as np
-
+import tensorflow as tf
+from tensorflow.keras.models import load_model
 
 st.title("Intelligent  Papilledema  Detector  (IPD)")
 st.header("By  Priya  Thiagarajan  (21CS007)")
 
 img = st.file_uploader("", type=['png', 'jpg', 'jpeg'])
 
-model = 'new_model.h5'
-#model = load_model(model_name)
+model_name = 'new_model.h5'
+model = load_model(model_name)
 
 pred = model.pred(img)
 x = np.argmax(pred)
