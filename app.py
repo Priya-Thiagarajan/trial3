@@ -34,7 +34,7 @@ if (st.button("Submit")):
   
   if x == 0:
     st.success("Normal")
-  if x == 1:
-    st.warning("Pseudopapilledema")
   if x == 2:
+    st.warning("Pseudopapilledema")
+  if x == 1:
     st.error("Papilledema")
