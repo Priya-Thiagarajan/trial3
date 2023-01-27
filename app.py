@@ -11,7 +11,7 @@ img = st.file_uploader("", type=['png', 'jpg', 'jpeg'])
 model_name = 'new_model.h5'
 model = load_model(model_name)
 
-pred = model.pred(img)
+pred = model.predict(img)
 x = np.argmax(pred)
 
 if x == 0:
