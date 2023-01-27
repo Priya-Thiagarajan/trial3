@@ -8,14 +8,19 @@ from keras.utils import load_img, img_to_array
 st.title("Intelligent  Papilledema  Detector  (IPD)")
 st.header("By  Priya  Thiagarajan  (21CS007)")
 
-img = st.file_uploader("", type=['png', 'jpg', 'jpeg'])
+files = st.file_uploader("", type=['png', 'jpg', 'jpeg'])
+basepath = os.path.dirname(__file__)
+filename = files.filename
+filename = filename.replace(" ", "")
+file_path = os.path.join(basepath, 'uploads', filename)
+files.save(file_path)
 
 model_name = 'new_model.h5'
 model = load_model(model_name)
 
-
+img = image.load_img(file_path, target_size=[240, 240])
 img = img_to_array(img)
-img =img.reshape(240,240)
+# img =img.reshape(240,240)
 img = numpy.expand_dims(img, axis=0)
 op = model.predict(img)
 x = np.argmax(op)
