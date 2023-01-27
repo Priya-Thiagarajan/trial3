@@ -13,6 +13,7 @@ img = st.file_uploader("", type=['png', 'jpg', 'jpeg'])
 model_name = 'new_model.h5'
 model = load_model(model_name)
 
+img =img.reshape(240,240)
 img = img_to_array(img)
 img = numpy.expand_dims(img, axis=0)
 op = model.predict(img)
