@@ -5,6 +5,7 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 import tensorflow.keras as keras
 from keras.utils import load_img, img_to_array
+from PIL import Image, ImageEnhance
 
 st.title("Intelligent  Papilledema  Detector  (IPD)")
 st.header("By  Priya  Thiagarajan  (21CS007)")
@@ -12,16 +13,18 @@ st.header("By  Priya  Thiagarajan  (21CS007)")
 files = st.file_uploader("", type=['png', 'jpg', 'jpeg'])
 
 if (st.button("Submit")): 
-  basepath = os.path.dirname(__file__)
-  filename = files.filename
-  filename = filename.replace(" ", "")
-  file_path = os.path.join(basepath, 'uploads', filename)
-  files.save(file_path)
+  
+  #basepath = os.path.dirname(__file__)
+  #filename = files.filename
+  #filename = filename.replace(" ", "")
+  #file_path = os.path.join(basepath, 'uploads', filename)
+  #files.save(file_path)
 
 model_name = 'new_model.h5'
 model = load_model(model_name)
 
-img = image.load_img(file_path, target_size=[240, 240])
+#img = image.load_img(file_path, target_size=[240, 240])
+img = Image.open(files)
 img = img_to_array(img)
 # img =img.reshape(240,240)
 img = numpy.expand_dims(img, axis=0)
