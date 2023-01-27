@@ -12,7 +12,7 @@ st.header("By  Priya  Thiagarajan  (21CS007)")
 
 files = st.file_uploader("", type=['png', 'jpg', 'jpeg'])
 
-if (st.button("Submit")): 
+#if (st.button("Submit")): 
   
   #basepath = os.path.dirname(__file__)
   #filename = files.filename
@@ -23,17 +23,18 @@ if (st.button("Submit")):
 model_name = 'new_model.h5'
 model = load_model(model_name)
 
-#img = image.load_img(file_path, target_size=[240, 240])
-img = Image.open(files)
-img = img_to_array(img)
-# img =img.reshape(240,240)
-img = numpy.expand_dims(img, axis=0)
-op = model.predict(img)
-x = np.argmax(op)
-
-if x == 0:
-  st.success("Normal")
-if x == 1:
-  st.warning("Pseudopapilledema")
-if x == 2:
-  st.error("Papilledema")
+if (st.button("Submit")):
+  #img = image.load_img(file_path, target_size=[240, 240])
+  img = Image.open(files)
+  img = img_to_array(img)
+  # img =img.reshape(240,240)
+  img = numpy.expand_dims(img, axis=0)
+  op = model.predict(img)
+  x = np.argmax(op)
+  
+  if x == 0:
+    st.success("Normal")
+  if x == 1:
+    st.warning("Pseudopapilledema")
+  if x == 2:
+    st.error("Papilledema")
