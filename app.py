@@ -27,7 +27,7 @@ if (st.button("Submit")):
   #img = image.load_img(file_path, target_size=[240, 240])
   img = Image.open(files)
   img = img_to_array(img)
-  img = img.reshape(240,240)
+  #img = img.reshape(240,240)
   img = np.expand_dims(img, axis=0)
   op = model.predict(img)
   x = np.argmax(op)
